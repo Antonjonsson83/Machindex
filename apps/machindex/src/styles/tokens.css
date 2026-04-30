@@ -1,0 +1,294 @@
+/* =========================================================================
+ * MachIndex Design Tokens
+ *
+ * Single source of truth for all design values.
+ * Change here, and it propagates everywhere.
+ *
+ * Two layers:
+ *   1. PRIMITIVES   — raw values (rarely touched)
+ *   2. SEMANTIC     — meaning-based aliases (theme-switchable)
+ *
+ * Theme switching:
+ *   <html>                       → dark (default)
+ *   <html data-theme="light">    → light
+ * ========================================================================= */
+
+/* -------------------------------------------------------------------------
+ * 1. PRIMITIVES — raw values, theme-agnostic
+ * ------------------------------------------------------------------------- */
+
+:root {
+  /* ----- Brand & Accent (single accent rule) ----- */
+  --color-accent-50:  #e6fcf6;
+  --color-accent-100: #b8f5e3;
+  --color-accent-200: #7eebc9;
+  --color-accent-300: #44e0ad;
+  --color-accent-400: #1ed697;
+  --color-accent-500: #16b886;  /* primary brand accent */
+  --color-accent-600: #0f9870;
+  --color-accent-700: #0c785a;
+  --color-accent-800: #0a5944;
+  --color-accent-900: #073d2f;
+
+  /* ----- Neutrals ----- */
+  --color-neutral-0:   #ffffff;
+  --color-neutral-50:  #f7f8f9;
+  --color-neutral-100: #eef0f2;
+  --color-neutral-200: #dde0e4;
+  --color-neutral-300: #c4c8ce;
+  --color-neutral-400: #9aa0a8;
+  --color-neutral-500: #6e757f;
+  --color-neutral-600: #50575f;
+  --color-neutral-700: #383d44;
+  --color-neutral-800: #22262c;
+  --color-neutral-850: #181b20;
+  --color-neutral-900: #121418;
+  --color-neutral-950: #0a0c0f;
+
+  /* ----- Status (semantic colors, used for meaning, not decoration) ----- */
+  --color-success-500: #1ea672;
+  --color-warning-500: #d4a017;
+  --color-critical-500: #d04848;
+  --color-info-500: #3a86d8;
+
+  /* ----- Radius scale (locked — see DESIGN_SYSTEM.md) ----- */
+  --radius-sm:   8px;   /* icon chips, small controls         */
+  --radius-md:  12px;   /* inputs, small containers           */
+  --radius-lg:  16px;   /* buttons, medium containers         */
+  --radius-xl:  20px;   /* default cards                      */
+  --radius-2xl: 24px;   /* large feature cards                */
+  --radius-full: 9999px; /* pills, avatars                    */
+
+  /* ----- Spacing scale (4px base) ----- */
+  --space-0:   0;
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ----- Typography ----- */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+               "Liberation Mono", "Courier New", monospace;
+
+  --font-size-xs:    12px;
+  --font-size-sm:    13px;
+  --font-size-base:  14px;
+  --font-size-md:    16px;
+  --font-size-lg:    18px;
+  --font-size-xl:    20px;
+  --font-size-2xl:   24px;
+  --font-size-3xl:   32px;
+  --font-size-4xl:   40px;
+  --font-size-5xl:   56px;
+
+  --line-height-tight:    1.15;
+  --line-height-snug:     1.3;
+  --line-height-normal:   1.5;
+  --line-height-relaxed:  1.65;
+
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  --letter-spacing-tight:  -0.02em;
+  --letter-spacing-normal:  0;
+  --letter-spacing-wide:    0.04em;
+
+  /* ----- Card system (locked sizes per DESIGN_SYSTEM.md) ----- */
+  --card-padding-compact: var(--space-3);   /* 12px */
+  --card-padding-default: var(--space-4);   /* 16px */
+  --card-padding-feature: var(--space-5);   /* 20px */
+
+  --card-radius-default: var(--radius-xl);   /* 20px */
+  --card-radius-feature: var(--radius-2xl);  /* 24px */
+
+  /* ----- Bento grid (locked per DESIGN_SYSTEM.md) ----- */
+  --grid-columns: 6;
+  --grid-gap: 12px;
+  --grid-padding: 16px;
+
+  /* ----- Z-index scale ----- */
+  --z-base:        0;
+  --z-raised:      1;
+  --z-dropdown:  100;
+  --z-sticky:    200;
+  --z-overlay:   300;
+  --z-modal:     400;
+  --z-popover:   500;
+  --z-toast:     600;
+  --z-tooltip:   700;
+
+  /* ----- Motion ----- */
+  --duration-fast:   120ms;
+  --duration-base:   200ms;
+  --duration-slow:   320ms;
+  --ease-standard:   cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:        cubic-bezier(0, 0, 0.2, 1);
+  --ease-in:         cubic-bezier(0.4, 0, 1, 1);
+
+  /* ----- Borders ----- */
+  --border-width-thin:    1px;
+  --border-width-default: 1px;
+  --border-width-thick:   2px;
+}
+
+/* -------------------------------------------------------------------------
+ * 2. SEMANTIC — theme-aware aliases
+ *    DARK MODE (default)
+ * ------------------------------------------------------------------------- */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --surface-base:     var(--color-neutral-950);  /* page background        */
+  --surface-inner:   var(--color-neutral-900);  /* inset (e.g. AI input)  */
+  --surface-raised:   var(--color-neutral-850);  /* default card           */
+  --surface-overlay:  var(--color-neutral-800);  /* modals, popovers       */
+  --surface-hover:    var(--color-neutral-800);
+
+  /* Text */
+  --text-primary:    var(--color-neutral-50);
+  --text-secondary:  var(--color-neutral-300);
+  --text-tertiary:   var(--color-neutral-400);
+  --text-disabled:   var(--color-neutral-600);
+  --text-on-accent:  var(--color-neutral-950);
+
+  /* Borders */
+  --border-subtle:   var(--color-neutral-800);
+  --border-default:  var(--color-neutral-700);
+  --border-strong:   var(--color-neutral-600);
+
+  /* Accent (single allowed accent per component) */
+  --accent:          var(--color-accent-500);
+  --accent-hover:    var(--color-accent-400);
+  --accent-pressed:  var(--color-accent-600);
+  --accent-subtle:   color-mix(in srgb, var(--color-accent-500) 14%, transparent);
+
+  /* Status (for meaning, not decoration) */
+  --status-success:   var(--color-success-500);
+  --status-warning:   var(--color-warning-500);
+  --status-critical:  var(--color-critical-500);
+  --status-info:      var(--color-info-500);
+
+  /* Shadows — depth from contrast only, no glow, no neon */
+  --shadow-none:          none;
+  --shadow-soft-raised:   none;
+  --shadow-overlay:       0 8px 24px rgba(0, 0, 0, 0.4);
+
+  /* Card tokens (consume these in components, never hardcode) */
+  --card-bg:      var(--surface-raised);
+  --card-border:  1px solid var(--border-subtle);
+  --card-shadow:  var(--shadow-soft-raised);
+
+  /* Input tokens */
+  --input-bg:           var(--surface-inner);
+  --input-border:       1px solid var(--border-default);
+  --input-border-focus: 1px solid var(--accent);
+  --input-text:         var(--text-primary);
+  --input-placeholder:  var(--text-tertiary);
+
+  /* Button tokens */
+  --button-primary-bg:        var(--accent);
+  --button-primary-bg-hover:  var(--accent-hover);
+  --button-primary-text:      var(--text-on-accent);
+
+  --button-secondary-bg:        transparent;
+  --button-secondary-bg-hover:  var(--surface-hover);
+  --button-secondary-text:      var(--text-primary);
+  --button-secondary-border:    1px solid var(--border-default);
+
+  /* Focus ring (single token used everywhere focus is visible) */
+  --focus-ring: 0 0 0 2px var(--surface-base), 0 0 0 4px var(--accent);
+}
+
+/* -------------------------------------------------------------------------
+ *    LIGHT MODE
+ * ------------------------------------------------------------------------- */
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Surfaces */
+  --surface-base:     var(--color-neutral-50);
+  --surface-inner:   var(--color-neutral-100);
+  --surface-raised:   var(--color-neutral-0);
+  --surface-overlay:  var(--color-neutral-0);
+  --surface-hover:    var(--color-neutral-100);
+
+  /* Text */
+  --text-primary:    var(--color-neutral-900);
+  --text-secondary:  var(--color-neutral-700);
+  --text-tertiary:   var(--color-neutral-500);
+  --text-disabled:   var(--color-neutral-300);
+  --text-on-accent:  var(--color-neutral-0);
+
+  /* Borders */
+  --border-subtle:   var(--color-neutral-100);
+  --border-default:  var(--color-neutral-200);
+  --border-strong:   var(--color-neutral-300);
+
+  /* Accent — same brand color, may shift slightly for light bg legibility */
+  --accent:          var(--color-accent-600);
+  --accent-hover:    var(--color-accent-700);
+  --accent-pressed:  var(--color-accent-800);
+  --accent-subtle:   color-mix(in srgb, var(--color-accent-500) 10%, transparent);
+
+  /* Shadows — ultra subtle, max 2 layers, opacity <0.06 (per spec) */
+  --shadow-none:        none;
+  --shadow-soft-raised: 0 1px 2px rgba(0, 0, 0, 0.04),
+                        0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-overlay:     0 8px 24px rgba(0, 0, 0, 0.08);
+
+  /* Focus ring contrast adjustment for light bg */
+  --focus-ring: 0 0 0 2px var(--surface-base), 0 0 0 4px var(--accent);
+}
+
+/* -------------------------------------------------------------------------
+ * 3. SYSTEM-PREFERENCE FALLBACK
+ *    If user has set <html data-theme="..."> we honor that.
+ *    If not, we follow the OS preference.
+ * ------------------------------------------------------------------------- */
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+
+    --surface-base:     var(--color-neutral-50);
+    --surface-inner:   var(--color-neutral-100);
+    --surface-raised:   var(--color-neutral-0);
+    --surface-overlay:  var(--color-neutral-0);
+    --surface-hover:    var(--color-neutral-100);
+
+    --text-primary:    var(--color-neutral-900);
+    --text-secondary:  var(--color-neutral-700);
+    --text-tertiary:   var(--color-neutral-500);
+    --text-disabled:   var(--color-neutral-300);
+    --text-on-accent:  var(--color-neutral-0);
+
+    --border-subtle:   var(--color-neutral-100);
+    --border-default:  var(--color-neutral-200);
+    --border-strong:   var(--color-neutral-300);
+
+    --accent:          var(--color-accent-600);
+    --accent-hover:    var(--color-accent-700);
+    --accent-pressed:  var(--color-accent-800);
+    --accent-subtle:   color-mix(in srgb, var(--color-accent-500) 10%, transparent);
+
+    --shadow-soft-raised: 0 1px 2px rgba(0, 0, 0, 0.04),
+                          0 4px 12px rgba(0, 0, 0, 0.04);
+    --shadow-overlay:     0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+}
