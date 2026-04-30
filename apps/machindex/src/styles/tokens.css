@@ -133,9 +133,12 @@
   --duration-fast:   120ms;
   --duration-base:   200ms;
   --duration-slow:   320ms;
-  --ease-standard:   cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-standard:   cubic-bezier(0.22, 1, 0.36, 1);  /* MachIndex default — out-quint feel */
   --ease-out:        cubic-bezier(0, 0, 0.2, 1);
   --ease-in:         cubic-bezier(0.4, 0, 1, 1);
+
+  /* ----- Interaction states ----- */
+  --disabled-opacity: 0.5;
 
   /* ----- Borders ----- */
   --border-width-thin:    1px;
@@ -154,10 +157,11 @@
 
   /* Surfaces */
   --surface-base:     var(--color-neutral-950);  /* page background        */
-  --surface-inner:   var(--color-neutral-900);  /* inset (e.g. AI input)  */
+  --surface-inner:    var(--color-neutral-900);  /* inset (e.g. AI input)  */
   --surface-raised:   var(--color-neutral-850);  /* default card           */
   --surface-overlay:  var(--color-neutral-800);  /* modals, popovers       */
   --surface-hover:    var(--color-neutral-800);
+  --surface-track:    var(--color-neutral-800);  /* off-state controls (toggles, sliders) */
 
   /* Text */
   --text-primary:    var(--color-neutral-50);
@@ -176,6 +180,10 @@
   --accent-hover:    var(--color-accent-400);
   --accent-pressed:  var(--color-accent-600);
   --accent-subtle:   color-mix(in srgb, var(--color-accent-500) 14%, transparent);
+
+  /* Primary (RGB channels — supports Tailwind alpha modifier `primary/30`) */
+  --primary:             22 184 134;  /* matches --color-accent-500 #16b886 */
+  --primary-foreground:  10 12 15;    /* matches --color-neutral-950 #0a0c0f */
 
   /* Status (for meaning, not decoration) */
   --status-success:   var(--color-success-500);
@@ -227,10 +235,11 @@
 
   /* Surfaces */
   --surface-base:     var(--color-neutral-50);
-  --surface-inner:   var(--color-neutral-100);
+  --surface-inner:    var(--color-neutral-100);
   --surface-raised:   var(--color-neutral-0);
   --surface-overlay:  var(--color-neutral-0);
   --surface-hover:    var(--color-neutral-100);
+  --surface-track:    var(--color-neutral-200);
 
   /* Text */
   --text-primary:    var(--color-neutral-900);
@@ -250,15 +259,15 @@
   --accent-pressed:  var(--color-accent-800);
   --accent-subtle:   color-mix(in srgb, var(--color-accent-500) 10%, transparent);
 
+  /* Primary (RGB channels — light variant uses accent-600 #0f9870) */
+  --primary:             15 152 112;
+  --primary-foreground:  255 255 255;
+
   /* Shadows — ultra subtle, max 2 layers, opacity <0.06 (per spec) */
   --shadow-none:        none;
   --shadow-soft-raised: 0 1px 2px rgba(0, 0, 0, 0.04),
                         0 4px 12px rgba(0, 0, 0, 0.04);
   --shadow-overlay:     0 8px 24px rgba(0, 0, 0, 0.08);
-
-  /* Shorthand aliases — update in dark block too */
-  --foreground: var(--text-primary);
-  --border:     var(--border-default);
 
   /* Focus ring contrast adjustment for light bg */
   --focus-ring: 0 0 0 2px var(--surface-base), 0 0 0 4px var(--accent);
@@ -275,10 +284,11 @@
     color-scheme: light;
 
     --surface-base:     var(--color-neutral-50);
-    --surface-inner:   var(--color-neutral-100);
+    --surface-inner:    var(--color-neutral-100);
     --surface-raised:   var(--color-neutral-0);
     --surface-overlay:  var(--color-neutral-0);
     --surface-hover:    var(--color-neutral-100);
+    --surface-track:    var(--color-neutral-200);
 
     --text-primary:    var(--color-neutral-900);
     --text-secondary:  var(--color-neutral-700);
@@ -294,6 +304,9 @@
     --accent-hover:    var(--color-accent-700);
     --accent-pressed:  var(--color-accent-800);
     --accent-subtle:   color-mix(in srgb, var(--color-accent-500) 10%, transparent);
+
+    --primary:             15 152 112;
+    --primary-foreground:  255 255 255;
 
     --shadow-soft-raised: 0 1px 2px rgba(0, 0, 0, 0.04),
                           0 4px 12px rgba(0, 0, 0, 0.04);

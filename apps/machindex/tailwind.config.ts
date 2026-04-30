@@ -25,6 +25,7 @@ export default {
         "surface-raised":  "var(--surface-raised)",
         "surface-overlay": "var(--surface-overlay)",
         "surface-hover":   "var(--surface-hover)",
+        "surface-track":   "var(--surface-track)",
 
         // Shorthand aliases (matches border-border, text-foreground conventions)
         "foreground":      "var(--foreground)",
@@ -49,6 +50,11 @@ export default {
         "accent-hover":    "var(--accent-hover)",
         "accent-pressed":  "var(--accent-pressed)",
         "accent-subtle":   "var(--accent-subtle)",
+
+        // Primary — RGB-channel form so Tailwind's /<alpha> modifier works
+        // (e.g. bg-primary, bg-primary/10, ring-primary/30)
+        "primary":             "rgb(var(--primary) / <alpha-value>)",
+        "primary-foreground":  "rgb(var(--primary-foreground) / <alpha-value>)",
 
         // Status (semantic only)
         "success":   "var(--status-success)",
@@ -97,9 +103,12 @@ export default {
       },
 
       transitionTimingFunction: {
-        "ease-standard": "var(--ease-standard)",
-        "ease-out":      "var(--ease-out)",
-        "ease-in":       "var(--ease-in)",
+        // Tailwind prefixes with `ease-`, so these produce ease-standard / ease-mx etc.
+        // ease-standard is the MachIndex default (cubic-bezier(0.22, 1, 0.36, 1))
+        "standard": "var(--ease-standard)",
+        "mx":       "var(--ease-standard)",
+        "soft-out": "var(--ease-out)",
+        "soft-in":  "var(--ease-in)",
       },
 
       zIndex: {
