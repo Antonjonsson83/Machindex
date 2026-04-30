@@ -45,6 +45,20 @@
   --color-neutral-900: #121418;
   --color-neutral-950: #0a0c0f;
 
+  /* ----- MachIndex v2.1 Surface Primitives (exact brand values) ----- */
+  /* Dark mode 4-layer surface system */
+  --mx-dark-base:    #050709;  /* L0 — page background */
+  --mx-dark-track:   #0A0D14;  /* L2 — off-state controls */
+  --mx-dark-raised:  #0F1219;  /* L1 — default cards */
+  --mx-dark-inner:   #151820;  /* L3 — inset surfaces (AI input, etc.) */
+  --mx-dark-overlay: #1A1E28;  /* derived — modals, popovers */
+
+  /* Light mode 4-layer surface system */
+  --mx-light-base:   #F2F4F6;  /* L0 — page background */
+  --mx-light-track:  #F6F7F9;  /* L2 — off-state controls */
+  --mx-light-inner:  #FAFAFA;  /* L3 — inset surfaces */
+  --mx-light-hover:  #EBEDF0;  /* derived — hover states */
+
   /* ----- Status (semantic colors, used for meaning, not decoration) ----- */
   --color-success-500: #1ea672;
   --color-warning-500: #d4a017;
@@ -75,10 +89,9 @@
   --space-24: 96px;
 
   /* ----- Typography ----- */
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-               "Helvetica Neue", Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-               "Liberation Mono", "Courier New", monospace;
+  --font-sans:       "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono:       "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-condensed:  "Barlow Semi Condensed", ui-sans-serif, system-ui, sans-serif;
 
   --font-size-xs:    12px;
   --font-size-sm:    13px;
@@ -155,13 +168,13 @@
 [data-theme="dark"] {
   color-scheme: dark;
 
-  /* Surfaces */
-  --surface-base:     var(--color-neutral-950);  /* page background        */
-  --surface-inner:    var(--color-neutral-900);  /* inset (e.g. AI input)  */
-  --surface-raised:   var(--color-neutral-850);  /* default card           */
-  --surface-overlay:  var(--color-neutral-800);  /* modals, popovers       */
-  --surface-hover:    var(--color-neutral-800);
-  --surface-track:    var(--color-neutral-800);  /* off-state controls (toggles, sliders) */
+  /* Surfaces — v2.1 exact brand values */
+  --surface-base:     var(--mx-dark-base);    /* L0 — page background        */
+  --surface-track:    var(--mx-dark-track);   /* L2 — off-state controls     */
+  --surface-raised:   var(--mx-dark-raised);  /* L1 — default cards          */
+  --surface-inner:    var(--mx-dark-inner);   /* L3 — inset (e.g. AI input)  */
+  --surface-overlay:  var(--mx-dark-overlay); /* derived — modals, popovers  */
+  --surface-hover:    var(--mx-dark-overlay);
 
   /* Text */
   --text-primary:    var(--color-neutral-50);
@@ -233,13 +246,13 @@
 [data-theme="light"] {
   color-scheme: light;
 
-  /* Surfaces */
-  --surface-base:     var(--color-neutral-50);
-  --surface-inner:    var(--color-neutral-100);
-  --surface-raised:   var(--color-neutral-0);
-  --surface-overlay:  var(--color-neutral-0);
-  --surface-hover:    var(--color-neutral-100);
-  --surface-track:    var(--color-neutral-200);
+  /* Surfaces — v2.1 exact brand values */
+  --surface-base:     var(--mx-light-base);        /* L0 — page background        */
+  --surface-track:    var(--mx-light-track);       /* L2 — off-state controls     */
+  --surface-raised:   var(--color-neutral-0);      /* L1 — default cards (#fff)   */
+  --surface-inner:    var(--mx-light-inner);       /* L3 — inset (e.g. AI input)  */
+  --surface-overlay:  var(--color-neutral-0);      /* modals, popovers            */
+  --surface-hover:    var(--mx-light-hover);
 
   /* Text */
   --text-primary:    var(--color-neutral-900);
@@ -283,12 +296,12 @@
   :root:not([data-theme]) {
     color-scheme: light;
 
-    --surface-base:     var(--color-neutral-50);
-    --surface-inner:    var(--color-neutral-100);
+    --surface-base:     var(--mx-light-base);
+    --surface-track:    var(--mx-light-track);
     --surface-raised:   var(--color-neutral-0);
+    --surface-inner:    var(--mx-light-inner);
     --surface-overlay:  var(--color-neutral-0);
-    --surface-hover:    var(--color-neutral-100);
-    --surface-track:    var(--color-neutral-200);
+    --surface-hover:    var(--mx-light-hover);
 
     --text-primary:    var(--color-neutral-900);
     --text-secondary:  var(--color-neutral-700);

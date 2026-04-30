@@ -79,8 +79,9 @@ export default {
       },
 
       fontFamily: {
-        sans: "var(--font-sans)",
-        mono: "var(--font-mono)",
+        sans:       "var(--font-sans)",
+        mono:       "var(--font-mono)",
+        condensed:  "var(--font-condensed)",
       },
 
       fontSize: {

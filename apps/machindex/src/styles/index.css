@@ -2,13 +2,21 @@
  * MachIndex CSS Entry
  *
  * Import order matters:
- *   1. Tailwind base/components/utilities
- *   2. Design tokens (CSS custom properties)
- *   3. Globals (resets, base elements)
+ *   1. Fonts
+ *   2. Tailwind base/components/utilities
+ *   3. Design tokens (CSS custom properties)
+ *   4. Globals (resets, base elements)
  *
  * Components MUST consume tokens (e.g. bg-surface-raised, rounded-xl).
  * Hardcoded colors, radii, or shadows are not allowed.
+ *
+ * Font packages required (add to package.json):
+ *   geist                       → npm install geist
+ *   @fontsource/jetbrains-mono  → npm install @fontsource/jetbrains-mono
+ *   @fontsource/barlow-semi-condensed → npm install @fontsource/barlow-semi-condensed
  * ========================================================================= */
+
+/* Fonts — loaded via @fontsource packages in main.tsx */
 
 @tailwind base;
 @tailwind components;

@@ -1,4 +1,4 @@
-# MachIndex Design System — v2
+# MachIndex Design System — v2.1
 
 > **Core Principle**
 >
@@ -7,6 +7,50 @@
 > The system allows softness, but not creativity.
 > Softness is controlled via tokens.
 > Creativity outside tokens is not allowed.
+>
+> Consistency > Creativity. System > Style. Precision > Expression.
+
+---
+
+## 0. Surface System
+
+Four layers only. No additional layers. No custom backgrounds. No gradients.
+
+### Dark Mode (default)
+
+| Layer | Token | Value | Usage |
+|---|---|---|---|
+| L0 | `--surface-base` | `#050709` | Page background |
+| L1 | `--surface-raised` | `#0F1219` | Default cards |
+| L2 | `--surface-track` | `#0A0D14` | Off-state controls |
+| L3 | `--surface-inner` | `#151820` | Inset surfaces (AI input, etc.) |
+
+### Light Mode
+
+| Layer | Token | Value | Usage |
+|---|---|---|---|
+| L0 | `--surface-base` | `#F2F4F6` | Page background |
+| L1 | `--surface-raised` | `#FFFFFF` | Default cards |
+| L2 | `--surface-track` | `#F6F7F9` | Off-state controls |
+| L3 | `--surface-inner` | `#FAFAFA` | Inset surfaces |
+
+### Rules
+
+- Exactly 4 layers — never add a 5th
+- Never use arbitrary background colors on surfaces
+- No gradients on any surface layer
+
+---
+
+## 0.5. Typography
+
+| Token | Font | Usage |
+|---|---|---|
+| `--font-sans` | Geist | Body, UI, labels |
+| `--font-mono` | JetBrains Mono | Code, numeric data |
+| `--font-condensed` | Barlow Semi Condensed | Data tables, compact headers |
+
+Font packages: `geist`, `@fontsource/jetbrains-mono`, `@fontsource/barlow-semi-condensed`
 
 ---
 
