@@ -26,6 +26,10 @@ export default {
         "surface-overlay": "var(--surface-overlay)",
         "surface-hover":   "var(--surface-hover)",
 
+        // Shorthand aliases (matches border-border, text-foreground conventions)
+        "foreground":      "var(--foreground)",
+        "border":          "var(--border)",
+
         // Text
         "text-primary":    "var(--text-primary)",
         "text-secondary":  "var(--text-secondary)",

@@ -188,6 +188,10 @@
   --shadow-soft-raised:   none;
   --shadow-overlay:       0 8px 24px rgba(0, 0, 0, 0.4);
 
+  /* Shorthand aliases — defined once, cascade through light/dark automatically */
+  --foreground: var(--text-primary);
+  --border:     var(--border-default);
+
   /* Card tokens (consume these in components, never hardcode) */
   --card-bg:      var(--surface-raised);
   --card-border:  1px solid var(--border-subtle);
@@ -251,6 +255,10 @@
   --shadow-soft-raised: 0 1px 2px rgba(0, 0, 0, 0.04),
                         0 4px 12px rgba(0, 0, 0, 0.04);
   --shadow-overlay:     0 8px 24px rgba(0, 0, 0, 0.08);
+
+  /* Shorthand aliases — update in dark block too */
+  --foreground: var(--text-primary);
+  --border:     var(--border-default);
 
   /* Focus ring contrast adjustment for light bg */
   --focus-ring: 0 0 0 2px var(--surface-base), 0 0 0 4px var(--accent);
